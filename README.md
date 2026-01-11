@@ -1,5 +1,4 @@
-Siap 👍 aku buatin **README.md yang rapi, profesional, dan cocok untuk PKL**
-Tinggal **copy–paste** ke file `README.md` di root repo `pkl-portofolio`.
+
 
 ---
 
@@ -154,5 +153,6 @@ git push
 ````
 
 ---
+
 
 
