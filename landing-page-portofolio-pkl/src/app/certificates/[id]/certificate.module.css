@@ -1,0 +1,90 @@
+.page {
+  padding: 90px 60px 40px;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 50px;
+}
+
+/* WRAPPER */
+.wrapper {
+  display: flex;
+  gap: 40px;
+}
+
+/* CARD */
+.card {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  padding: 30px;
+  color: #ffffff;
+}
+
+/* IMAGE */
+.image {
+  width: 90%;
+  max-width: 500px;
+  border-radius: 16px;
+  margin-bottom: 24px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* PDF BUTTON */
+.pdfWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.pdf {
+  padding: 14px 42px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #38bdf8, #a855f7);
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+/* INFO ROW */
+.info {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 14px;
+  font-size: 16px;
+}
+
+/* DESCRIPTION */
+.desc {
+  margin-top: 22px;
+  line-height: 1.7;
+  font-weight: bold;
+  opacity: 0.95;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .page {
+    padding: 40px 20px;
+  }
+
+  .title {
+    font-size: 26px;
+    margin-bottom: 30px;
+  }
+
+  .wrapper {
+    flex-direction: column;
+  }
+
+  .image {
+    width: 100%;
+  }
+}

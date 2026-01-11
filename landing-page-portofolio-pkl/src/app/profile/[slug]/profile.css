@@ -1,0 +1,106 @@
+/* CONTAINER */
+.container {
+  padding: 20px;
+  padding-top: 100px;
+}
+
+/* NOT FOUND */
+.notfound {
+  text-align: center;
+  margin-top: 60px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* HEADER */
+.hero-title {
+  margin-bottom: 8px;
+}
+
+.hero-text {
+  margin-bottom: 30px;
+}
+
+/* CARD */
+.card {
+  border-radius: 12px;
+}
+
+
+/* ABOUT */
+.about {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.profile-img {
+  width: 300px;
+  max-width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.about-content {
+  flex: 1;
+}
+
+.about-text {
+  margin-top: 16px;
+  line-height: 1.7;
+  opacity: 0.95;
+}
+
+/* SERTIFIKAT */
+.cert-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.cert-card {
+  width: 220px;
+  text-align: center;
+  padding: 10px;
+}
+
+.cert-img {
+  width: 2500%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.cert-title {
+  margin-top: 8px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* BUTTON */
+.btn {
+  margin-top: 6px;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-pdf {
+  margin-bottom: 5px;
+}
+
+/* GITHUB */
+.github {
+  text-align: center;
+}
+
+.github-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
