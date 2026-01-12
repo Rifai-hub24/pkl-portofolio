@@ -8,14 +8,13 @@ export default function AdminLayout({ children }) {
   const pathname = usePathname()
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
-  // LOGIN TANPA SIDEBAR
   if (pathname === '/admin/login') return <>{children}</>
 
   const isDashboard = pathname === '/admin/dashboard'
   const isProfile = pathname.startsWith('/admin/profile/')
+  const isUsers = pathname.startsWith('/admin/users')
   const slug = pathname.split('/')[3]
 
-  // Fungsi untuk menentukan hover berdasarkan halaman
   const getHoverClass = (href) => {
     if (isProfile && href.includes('/profile/')) {
       return 'bg-pink-600/30 text-pink-300'
@@ -23,13 +22,11 @@ export default function AdminLayout({ children }) {
     if (isDashboard && href.includes('/dashboard')) {
       return 'bg-green-600/25 text-green-100'
     }
-    return 'bg-violet-600/20 text-white' // default
+    return 'bg-violet-600/20 text-white'
   }
 
   return (
     <div className="h-screen w-full flex overflow-hidden text-white">
-
-      {/* OVERLAY MOBILE */}
       {sidebarOpen && (
         <div
           className="fixed inset-0 bg-black/70 z-30 md:hidden"
@@ -37,15 +34,11 @@ export default function AdminLayout({ children }) {
         />
       )}
 
-      {/* SIDEBAR */}
       <aside
         className={`
           fixed inset-y-0 left-0 z-40
           w-56 md:w-64
-          bg-linear-to-b
-          from-[#05040a]
-          via-[#0b0716]
-          to-[#120a22]
+          bg-linear-to-b from-[#05040a] via-[#0b0716] to-[#120a22]
           border-r border-violet-500/15
           p-6 flex flex-col
           transition-transform duration-300
@@ -55,14 +48,7 @@ export default function AdminLayout({ children }) {
       >
         {/* LOGO */}
         <div className="flex flex-col items-center mb-10 shrink-0">
-          <div
-            className="
-              w-14 h-14 rounded-xl
-              bg-violet-600
-              shadow-[0_0_20px_rgba(139,92,246,0.7)]
-              flex items-center justify-center text-xl
-            "
-          >
+          <div className="w-14 h-14 rounded-xl bg-violet-600 shadow-[0_0_20px_rgba(139,92,246,0.7)] flex items-center justify-center text-xl">
             📊
           </div>
           <span className="mt-3 font-semibold tracking-wide text-white">
@@ -79,6 +65,14 @@ export default function AdminLayout({ children }) {
               hoverClass={getHoverClass('/admin/dashboard')}
             >
               🏠 Dashboard
+            </MenuLink>
+
+            <MenuLink
+              href="/admin/users"
+              active={isUsers}
+              hoverClass="bg-blue-600/25 text-blue-200"
+            >
+              👥 Kelola User
             </MenuLink>
 
             {isDashboard && (
@@ -113,11 +107,7 @@ export default function AdminLayout({ children }) {
           {/* LOGOUT */}
           <Link
             href="/admin/login"
-            className="
-              mt-6 px-4 py-3 rounded-xl text-center font-medium
-              text-red-300 bg-red-500/15 hover:bg-red-500/25
-              transition
-            "
+            className="mt-6 px-4 py-3 rounded-xl text-center font-medium text-red-300 bg-red-500/15 hover:bg-red-500/25 transition"
           >
             🚪 Logout
           </Link>
@@ -125,30 +115,14 @@ export default function AdminLayout({ children }) {
       </aside>
 
       {/* CONTENT */}
-      <div
-        className="
-          flex-1 ml-0 md:ml-64 flex flex-col
-          bg-linear-to-br
-          from-[#120b2e]
-          via-purple-950
-          to-fuchsia-950
-        "
-      >
-        {/* HEADER MOBILE */}
-        <header
-          className="
-            md:hidden h-14 flex items-center gap-4 px-4
-            bg-[#120b2e]/80 backdrop-blur
-            border-b border-violet-500/20
-          "
-        >
+      <div className="flex-1 ml-0 md:ml-64 flex flex-col bg-linear-to-br from-[#120b2e] via-purple-950 to-fuchsia-950">
+        <header className="md:hidden h-14 flex items-center gap-4 px-4 bg-[#120b2e]/80 backdrop-blur border-b border-violet-500/20">
           <button className="text-2xl" onClick={() => setSidebarOpen(true)}>
             ☰
           </button>
           <span className="font-semibold tracking-wide">Admin Panel</span>
         </header>
 
-        {/* MAIN */}
         <main className="flex-1 overflow-y-auto p-6 md:p-10">
           {children}
         </main>
@@ -157,7 +131,6 @@ export default function AdminLayout({ children }) {
   )
 }
 
-/* MENU LINK */
 function MenuLink({ href, children, active, hoverClass }) {
   return (
     <Link

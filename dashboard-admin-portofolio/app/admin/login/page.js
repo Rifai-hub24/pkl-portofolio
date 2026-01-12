@@ -46,7 +46,6 @@ export default function LoginPage() {
             className="
               px-5 py-4 rounded-2xl bg-white/10 text-white placeholder-white/60
               border border-white/20 focus:outline-none focus:ring-2 focus:ring-purple-500
-              focus:border-transparent transition duration-200
             "
           />
 
@@ -58,7 +57,6 @@ export default function LoginPage() {
             className="
               px-5 py-4 rounded-2xl bg-white/10 text-white placeholder-white/60
               border border-white/20 focus:outline-none focus:ring-2 focus:ring-purple-500
-              focus:border-transparent transition duration-200
             "
           />
 
@@ -69,19 +67,29 @@ export default function LoginPage() {
               bg-linear-to-r from-purple-600 to-purple-700
               hover:from-purple-500 hover:to-purple-600
               text-white font-semibold shadow-lg shadow-purple-700/40
-              transition duration-200
             "
           >
             Login
           </button>
 
           {error && (
-            <p className="text-red-400 mt-3 text-center font-medium animate-pulse">
+            <p className="text-red-400 mt-3 text-center font-medium">
               {error}
             </p>
           )}
-
         </form>
+
+        {/* Daftar Sekarang (teks link) */}
+        <p className="mt-6 text-center text-white/70 text-sm">
+          Belum punya akun?{' '}
+          <span
+            onClick={() => router.push('/daftar-sekarang')}
+            className="text-purple-400 font-semibold cursor-pointer hover:underline"
+          >
+            Daftar Sekarang
+          </span>
+        </p>
+
       </div>
     </div>
   )
