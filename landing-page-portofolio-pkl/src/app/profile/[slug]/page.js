@@ -25,6 +25,7 @@ export default async function ProfilePage({ params }) {
       <h1 className="hero-title">{profile.name}</h1>
       {profile.title && <p className="hero-text">{profile.title}</p>}
 
+      {/* TENTANG SAYA */}
       <div className="card about">
         <img src={fotoURL} alt={profile.name} className="profile-img" />
         <div className="about-content">
@@ -42,18 +43,36 @@ export default async function ProfilePage({ params }) {
           <h2>Sertifikat</h2>
           <div className="cert-wrapper">
             {profile.sertifikats.map((cert) => {
-              const certImg = cert.img.startsWith('http') ? cert.img : `${API_BASE}${cert.img}`
+              const certImg = cert.img?.startsWith('http') ? cert.img : `${API_BASE}${cert.img}`
               const pdfURL = cert.file_pdf ? `${API_BASE}${cert.file_pdf}` : null
+
+              // ✅ Tombol selengkapnya hanya muncul jika semua field lengkap
+              const isComplete =
+                cert.nama_penerima &&
+                cert.penyelenggara &&
+                cert.nama_kelas &&
+                cert.status_kelulusan &&
+                cert.tanggal_terbit &&
+                cert.masa_berlaku
+
               return (
                 <div key={cert.id} className="card cert-card">
-                  <img src={certImg} alt={cert.title} className="cert-img" />
-                  <p className="cert-title">{cert.title}</p>
+                  <img src={certImg || '/default-cert.jpg'} alt={cert.title || 'Sertifikat'} className="cert-img" />
+                  <p className="cert-title">{cert.title || 'Tidak ada judul'}</p>
+
+                  {/* Tombol PDF */}
                   {pdfURL && (
-                    <a href={pdfURL} target="_blank" className="btn btn-pdf">
+                    <a href={pdfURL} target="_blank" rel="noopener noreferrer" className="btn btn-pdf">
                       <FaFilePdf size={12} /> Lihat PDF
                     </a>
                   )}
-                  <a href={`/certificates/${cert.id}`} className="btn">Selengkapnya</a>
+
+                  {/* Tombol Selengkapnya */}
+                  {isComplete && (
+                    <a href={`/certificates/${cert.id}`} className="btn">
+                      Selengkapnya
+                    </a>
+                  )}
                 </div>
               )
             })}
@@ -62,12 +81,14 @@ export default async function ProfilePage({ params }) {
       )}
 
       {/* GITHUB */}
-      <div className="card github">
-        <h2>GitHub</h2>
-        <a href={profile.github} target="_blank" className="btn github-btn">
-          <FaGithub size={22} /> Kunjungi GitHub
-        </a>
-      </div>
+      {profile.github && (
+        <div className="card github">
+          <h2>GitHub</h2>
+          <a href={profile.github} target="_blank" rel="noopener noreferrer" className="btn github-btn">
+            <FaGithub size={22} /> Kunjungi GitHub
+          </a>
+        </div>
+      )}
     </div>
   )
 }
