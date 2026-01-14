@@ -4,21 +4,6 @@
 @import "tailwindcss";
 
 /* =========================
-   CSS VARIABLES
-========================= */
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-/* =========================
    BASE STYLES
 ========================= */
 @layer base {
@@ -27,61 +12,10 @@
   }
 
   body {
-    @apply min-h-screen bg-[var(--background)] text-[var(--foreground)] font-sans antialiased;
+    @apply min-h-screen font-sans antialiased;
   }
 
   img {
     @apply max-w-full h-auto;
-  }
-}
-
-/* =========================
-   REUSABLE COMPONENTS
-========================= */
-@layer components {
-  .container {
-    @apply max-w-[1000px] mx-auto mt-12 px-5;
-  }
-
-  .card {
-    @apply bg-white text-slate-900 rounded-xl p-6 shadow-lg shadow-slate-900/10;
-  }
-
-  .admin-card {
-    @apply bg-gradient-to-b from-white to-slate-50
-           text-slate-900
-           p-7
-           rounded-2xl
-           shadow-xl shadow-black/10
-           transition-all duration-300
-           hover:-translate-y-1.5
-           hover:shadow-2xl hover:shadow-black/20;
-  }
-
-  .btn {
-    @apply inline-flex justify-center items-center
-           px-5 py-3
-           bg-sky-700 hover:bg-sky-800
-           text-white font-semibold
-           rounded-xl
-           transition;
-  }
-
-  .input {
-    @apply px-4 py-3
-           border border-slate-200
-           rounded-xl
-           text-sm
-           focus:outline-none
-           focus:ring-2 focus:ring-sky-500;
-  }
-}
-
-/* =========================
-   UTILITIES
-========================= */
-@layer utilities {
-  .grid-auto {
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   }
 }

@@ -82,6 +82,44 @@
   nav a.active::after {
     width: 100%;
   }
+  /* ACCORDION NAVBAR */
+.nav-accordion {
+  position: absolute;
+  top: 150%; /* dari 100% -> geser lebih ke bawah */
+  right: 0;
+  transform: translateX(48px); /* dari 58px -> geser ke kiri */
+  margin-top: 10px;
+
+  min-width: 140px;
+  padding: 6px 0;
+
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(14px);
+  border-radius: 14px;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.45);
+  z-index: 200;
+}
+
+.nav-accordion a {
+  display: block;
+  padding: 14px 20px;
+
+  color: #c7d2fe;
+  font-weight: 600;
+  text-decoration: none;
+
+  transition: background 0.3s, color 0.3s;
+}
+
+.nav-accordion a:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+}
+
+/* MATIKAN GARIS BAWAH NAVBAR DI DROPDOWN */
+.nav-accordion a::after {
+  display: none;
+}
 
   /* HERO */
   .hero-title {
